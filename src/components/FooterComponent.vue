@@ -5,7 +5,7 @@
                 SOBRE NOSOTROS
             </p>
             <div class="pt-12">
-                <p class="text-white text-lg text-left font-poppins tracking-wider">
+                <p class="text-white text-sm md:text-lg text-left font-poppins tracking-wider">
                     Aprehenser desarrolla y responde a la planificación estratégica anual, cuya misión estará siempre
                     direccionada en el mejoramiento de la calidad educativa, mediante estrategias de innovación,
                     acompañamiento, participación y capacitación docente.
