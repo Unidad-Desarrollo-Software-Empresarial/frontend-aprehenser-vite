@@ -1,6 +1,6 @@
 <template>
     <button class="hover:bg-slate-50 hover:rounded-xl h-14 w-24 my-auto mx-2 focus:outline-none">
-        <p class="font-bold font-sans">
+        <p class="font-bold font-sans text-sm sm:text-md whitespace-nowrap ">
             <slot />
         </p>
     </button>

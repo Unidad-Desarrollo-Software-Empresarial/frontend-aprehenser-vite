@@ -6,7 +6,7 @@
         <div class=" p-5 my-auto">
             <img src="../assets/svg/aprehenser-logo.svg" alt="Logo Aprehenser">
         </div>
-        <div class="hidden sm:block max-w-auto justify-between">
+        <div class="hidden sm:block max-w-auto justify-between flex-row flex-wrap">
             <ButtonNavBarComponent>Quiénes Somos</ButtonNavBarComponent>
             <ButtonNavBarComponent>Qué hacemos</ButtonNavBarComponent>
             <ButtonNavBarComponent>Proyectos</ButtonNavBarComponent>

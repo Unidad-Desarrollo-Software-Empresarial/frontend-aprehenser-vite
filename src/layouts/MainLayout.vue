@@ -1,6 +1,6 @@
 <template>
     <NavBarComponent />
-    <div class="bg-slate-400 ">
+    <div class="">
         <slot />
     </div>
     <FooterComponent />

@@ -11,11 +11,16 @@ export default {
         'sans': ['Roboto', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         'monserrat': ['Montserrat', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         'poppins': ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        'open-sans': ['Open Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       colors:{
         'footer-bg': '#141D28',
         'divider-footer': '#343D48',
-        'footer-title-text': '#11BFDD'
+        'footer-title-text': '#11BFDD',
+        'labels-grey': '#A5A5A5',
+        'btn-see-more': '#FF6F00',
+        'divider-title': '#F9D14E',
+        'title-card': '#11BFDD'
       }
     },
   },
