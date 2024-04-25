@@ -56,7 +56,7 @@
                     <p class="font-poppins text-white">Teléfono:</p>
                 </div>
                 <div class="pl-8 pt-2">
-                    <p class="font-poppins text-white">(593) 06 2615 500 ext. 2057</p>
+                    <p class="font-poppins text-white">(593) 06 2994 700 ext. 2057</p>
                 </div>
             </div>
             <div class="border-b border-divider-footer my-4 px-4"></div>

@@ -18,8 +18,8 @@ export default {
         'divider-footer': '#343D48',
         'footer-title-text': '#11BFDD',
         'labels-grey': '#A5A5A5',
-        'btn-see-more': '#FF6F00',
-        'divider-title': '#F9D14E',
+        'btn-see-more': '#FF6F00', //naranja
+        'divider-title': '#F9D14E', //amarillo
         'title-card': '#11BFDD'
       }
     },

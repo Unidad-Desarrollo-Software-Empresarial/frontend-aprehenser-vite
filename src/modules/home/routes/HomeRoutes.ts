@@ -5,4 +5,5 @@ export class HomeRoutes {
     static proyectos = "proyectos";
     static noticias = "noticias";
     static publicaciones = "publicaciones";
+    static equipo1 = "equipo1";
 }
