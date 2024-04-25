@@ -1,16 +1,16 @@
-import { HomeRoutes } from "./HomeRoutes";
+// import { HomeRoutes } from "./HomeRoutes";
 
 const routes = [
     {
         path: "",
         children: [
             {
-                path: HomeRoutes.home,
+                path: "",
                 name: "home",
                 component: () => import("../pages/HomePage.vue"),
             },
             {
-                path: HomeRoutes.quienesSomos,
+                path: "quienes-somos",
                 children: [
                     {
                         path: "",
@@ -18,29 +18,39 @@ const routes = [
                         component: () => import("../pages/QuienesSomosInformacionPage.vue"),
                     },
                     {
-                        path: HomeRoutes.equipo,
+                        path: "equipo",
                         name: "quienes-somos/equipo",
                         component: () => import("../pages/Equipo.vue"),
+                    },
+                    {
+                        path: "opiniones",
+                        name: "quienes-somos/opiniones",
+                        component: () => import("../pages/OpinionesPage.vue"),
+                    },
+                    {
+                        path: "recursos-graficos",
+                        name: "quienes-somos/recursos-graficos",
+                        component: () => import("../pages/RecursosGraficosPage.vue"),
                     },
                 ],
             },
             {
-                path: HomeRoutes.queHacemos,
+                path: "que-hacemos",
                 name: "que-hacemos",
                 component: () => import("../pages/QueHacemosPage.vue"),
             },
             {
-                path: HomeRoutes.proyectos,
+                path: "proyectos",
                 name: "proyectos",
                 component: () => import("../pages/ProyectosPage.vue"),
             },
             {
-                path: HomeRoutes.noticias,
+                path: "noticias",
                 name: "noticias",
                 component: () => import("../pages/NoticiasPage.vue"),
             },
             {
-                path: HomeRoutes.publicaciones,
+                path: "publicaciones",
                 name: "publicaciones",
                 component: () => import("../pages/PublicacionesPage.vue"),
             },
