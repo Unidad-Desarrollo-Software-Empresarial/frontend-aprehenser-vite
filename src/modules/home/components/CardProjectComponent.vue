@@ -2,7 +2,7 @@
     <div class="bg-white rounded-xl shadow-md overflow-hidden max-w-sm m-3">
         <div class="flex-col">
             <div class="md:flex-shrink-0">
-                <img class="h-52 w-full object-cover " src="../../../assets/img/BackgroundMainImg.png"
+                <img class="h-52 w-full object-cover " src="@/assets/img/BackgroundMainImg.png"
                     alt="Background img">
             </div>
             <div class="max-h-md p-8">
