@@ -45,7 +45,7 @@
                 title="Diseño y desarrollo de un prototipo inalámbrico de monitorización de la calidad de la ventilación del aire en espacios interiores en la PUCE IBARRA" />
             <CardProjectComponent title="ComuniSalud" />
         </div>
-        <div>
+        <div class="flex justify-content items-center">
             <video loop autoplay muted>
                 <source src="https://s3-figma-videos-production-sig.figma.com/video/1242858492981883810/TEAM/f295/3f18/-9f4b-4628-ba1f-917b92ff45c0?Expires=1714953600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a9J5KzCE6olpMGX1KEIUc5znIHBplqWBWOB26gcwkH7czVOr7jreq3TvUDoStjZ~abrbkkeyWPyZPTRAfALTM-Bdd2VE9-Sk4oq0H~eQ1bxUmkhWWMk24vLxrbbSPQQPaqmP7f7ISleSWbWw4hcNJKPWUeCEKEMjQ1eUe2qyajJ2TV~Tv-4cO1cTueR6-3ku0lAwiuQMPFTskbUbFHW5S3Cbb2SAnRXvi2yZ3vMMKIsLfUCNjx4WXGfdL2A7vTiF79GlHVRwDhyhhJ7woGaQ4bL47k4eYUZWJW8LdS7PjziLJfNeTfhXBGAM15Np03dgTApi7bnEk0PJYtJSsMWs8A__" type="video/mp4">
             </video>

@@ -28,6 +28,10 @@ const routes = [
         {
             path: HomeRoutes.publicaciones,
             component: () => import("../pages/PublicacionesPage.vue"),
+        },
+        {
+            path: HomeRoutes.equipo1,
+            component: () => import("../pages/Equipo1.vue"),
         }
     ]
   },
