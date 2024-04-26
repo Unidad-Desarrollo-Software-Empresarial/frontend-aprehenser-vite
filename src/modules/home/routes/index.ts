@@ -36,8 +36,15 @@ const routes = [
             },
             {
                 path: "que-hacemos",
-                name: "que-hacemos",
-                component: () => import("../pages/QueHacemosPage.vue"),
+                // name: "que-hacemos",
+                // component: () => import("../pages/QueHacemosPage.vue"),
+                children:[
+                    {
+                        path: "",
+                        name: "que-hacemos",
+                        component: () => import("../pages/InnovacionEducativaPage.vue"),
+                    }
+                ]
             },
             {
                 path: "proyectos",
