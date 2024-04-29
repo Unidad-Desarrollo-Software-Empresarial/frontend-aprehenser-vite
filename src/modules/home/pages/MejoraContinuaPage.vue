@@ -5,11 +5,13 @@
         <p>Las líneas de acción del Sistema de Innovación Educativa "Aprehenser" desempeñan un papel esencial en la transformación y mejora continua de la educación. No solo impulsan la calidad de la enseñanza, sino que también fomentan la adaptación a los continuos cambios de la sociedad contemporánea.</p>
 
         <div class="border-b border-divider-title h-5 w-[450px]"></div>
+        
 
         <div class="flex justify-between">
             <SideBarComponent />
-            <div>Content</div>
+            <div>Evaluacion y mejora continua</div>
         </div>
+
     </MainLayout>
 </template>
 
