@@ -40,7 +40,7 @@
             <RouterLink 
                 active-class="font-bold text-title-card"
                 class="hover:bg-slate-50 hover:rounded-xl h-14 w-24 my-auto mx-2 focus:outline-none"
-                :to="{ name: 'publicaciones'}"
+                :to="{ name: 'publicaciones/revistas'}"
             >
                 Publicaciones
             </RouterLink>

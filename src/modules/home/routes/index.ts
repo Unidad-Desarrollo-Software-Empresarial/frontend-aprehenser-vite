@@ -81,8 +81,24 @@ const routes = [
             },
             {
                 path: "publicaciones",
-                name: "publicaciones",
-                component: () => import("../pages/PublicacionesPage.vue"),
+                children: [
+                    {
+                        path: "",
+                        name: "publicaciones/revistas",
+                        component: () => import("../pages/RevistasPage.vue")
+                    },
+                    {
+                        path: "divulgaciones",
+                        name: "publicaciones/divulgaciones",
+                        component: () => import("../pages/DivulgacionesPage.vue")
+                    },
+                    {
+                        path: "resultados-innovadores",
+                        name: "publicaciones/resultados-innovadores",
+                        component: () => import("../pages/ResultadosInnovadoresPage.vue")
+                    }
+                ]
+                
             },
         ],
     },

@@ -1,6 +1,6 @@
 <template>
-    <PublicacionesLayout title="Publicaciones">
-
+    <PublicacionesLayout title="Resultados Innovadores">
+        Resultados Innovadores
     </PublicacionesLayout>
 </template>
 
@@ -8,4 +8,6 @@
 import PublicacionesLayout from '../layouts/PublicacionesLayout.vue';
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

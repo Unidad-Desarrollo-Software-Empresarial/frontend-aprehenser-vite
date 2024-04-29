@@ -66,7 +66,7 @@
                     <p class="font-poppins text-white">Correo:</p>
                 </div>
                 <div class="pl-8 pt-2">
-                    <p class="font-poppins text-white">aprehensersrcpucesi.edu.ec</p>
+                    <p class="font-poppins text-white">aprehenser@pucesi.edu.ec</p>
                 </div>
             </div>
             <div class="border-b border-divider-footer my-4 px-4"></div>

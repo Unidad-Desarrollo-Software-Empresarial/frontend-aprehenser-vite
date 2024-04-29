@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col px-4">
+    <div>
         <RouterLink :to="{ name: 'que-hacemos'}" exact-active-class="bg-labels-grey text-white" class="p-4 border-t border-b">Innovacion Educativa</RouterLink>
         <RouterLink :to="{ name: 'que-hacemos/formacion-docente'}" exact-active-class="bg-labels-grey text-white"  class="p-4 border-t border-b">Desarrollo y formacion docente continua</RouterLink>
         <RouterLink :to="{ name: 'que-hacemos/investigacion-educativa'}" exact-active-class="bg-labels-grey text-white" class="p-4 border-t border-b">Investigacion educativa</RouterLink>
