@@ -2,12 +2,10 @@
     <MainLayout>
         <div class="h-686 bg-slate-500 w-full h-full relative">
             <div class="z-0 h-200 sm:h-auto ">
-                <Swiper :spaceBetween="30" :centeredSlides="true" 
-                    :autoplay="{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    }" 
-                    :navigation="false" :modules="modules">
+                <Swiper :spaceBetween="30" :centeredSlides="true" :autoplay="{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }" :navigation="false" :modules="modules">
                     <SwiperSlide>
                         <img src="@/assets/img/BackgroundMainImg.png" alt="Background img">
                     </SwiperSlide>
@@ -33,18 +31,20 @@
             </div>
         </div>
         <div class="md:h-32 p-8 mx-auto bg-labels-grey flex flex-col sm:flex-row md:justify-between md:items-center">
-            <a href="" class="p-8 hover:opacity-80 hover:border hover:rounded-lg">
-                <p class="text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">Proyectos +</p>
-            </a>
-            <a href="" class="p-8 hover:opacity-80 hover:border hover:rounded-lg ">
-                <p class="text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">Docentes +</p>
-            </a>
-            <a href="" class="p-8 hover:opacity-80 hover:border hover:rounded-lg ">
-                <p class="text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">Estudiantes +</p>
-            </a>
-            <a href="" class="p-8 hover:opacity-80 hover:border hover:rounded-lg ">
-                <p class="text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">Publicaciones +</p>
-            </a>
+
+            <p
+                class="p-8 hover:opacity-80 hover:border hover:rounded-lg hover:cursor-default text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                {{ 0 }}+ Proyectos</p>
+
+            <p
+                class="p-8 hover:opacity-80 hover:border hover:rounded-lg hover:cursor-default text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                {{ 0 }}+ Docentes</p>
+            <p
+                class="p-8 hover:opacity-80 hover:border hover:rounded-lg hover:cursor-default text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                {{ 0 }}+ Estudiantes</p>
+            <p
+                class="p-8 hover:opacity-80 hover:border hover:rounded-lg hover:cursor-default text-white text-xl sm:text-xl md:text-2xl font-semibold whitespace-nowrap">
+                {{ 0 }}+ Publicaciones</p>
         </div>
         <div class="flex flex-col justify-center items-center mx-auto pt-8 pb-4 px-12 md:px-24">
             <p class="text-labels-grey font-open-sans text-2xl md:text-5xl font-bold">Proyectos en marcha</p>
