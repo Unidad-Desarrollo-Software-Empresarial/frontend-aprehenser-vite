@@ -10,12 +10,12 @@
         </div>
         <div class="max-w-[710px] my-auto">
             <div class="">
-                <div class="flex justify-end">
-                    <div>Boton 1</div>
-                    <div>Boton 2</div>
+                <div class="flex justify-end gap-2 my-2">
+                    <div class="rounded-full bg-blue-300 w-24 h-8 flex justify-center items-center">Boton 1</div>
+                    <div class="rounded-full bg-blue-300 w-24 h-8 flex justify-center items-center">Boton 2</div>
                 </div>
-                <div class="">
-                    <img class="object-cover" :src="imageUrl" alt="Background img">
+                <div class="p-2">
+                    <img class="object-cover rounded-[20px]" :src="imageUrl" alt="Background img">
                 </div>
             </div>
         </div>
@@ -30,7 +30,6 @@ defineProps({
     title: { type: String, required: true },
     description: { type: String, required: true },
     imageUrl: { type: String, required: true }
-    
 })
 </script>
 
