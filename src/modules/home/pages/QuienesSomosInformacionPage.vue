@@ -6,7 +6,7 @@
                 <p class="font-sans text-2xl md:text-5xl font-bold">Información General</p>
                 <div class="border-b border-divider-title h-5 w-[450px]"></div>
             </div>
-            <div class="grid grid-cols-2 gap-10 place-items-stretch px-12">
+            <div class="flex flex-col sm:flex-row gap-10 place-items-stretch px-12">
                 <div class="text-justify">
                     <p>
                         En 2021 surgió Aprehenser, un sistema de Innovación Educativa con un propósito claro: impulsar

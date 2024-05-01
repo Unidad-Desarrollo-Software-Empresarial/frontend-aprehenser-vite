@@ -1,7 +1,7 @@
 <template>
     <MainLayout>
         <div class="h-[122px] w-full bg-[#848484] items-center justify-center align-center flex">
-            <p class="text-center text-white text-[52px]">Nuestras Noticias</p>
+            <p class="text-center text-white text-[26px] md:text-[52px]">Nuestras Noticias</p>
         </div>
         <div class="border-b-[5px] rounded border-divider-title max-w-[1200px] mx-auto py-1"></div>
 
