@@ -1,5 +1,6 @@
 <template>
-    <div class="flex max-w-auto shadow-sm max-h-40 justify-between items-center">
+    <div v-if="inicioIsLoading">Cargando...</div>
+    <div v-if="inicioIsSuccess" class="flex max-w-auto shadow-sm max-h-40 justify-between items-center">
         <div class="block md:hidden">
             <div class="text-right py-4 px-2">
                 <!-- Drop down -->
@@ -19,7 +20,19 @@
                         <MenuItems
                             class="z-30 absolute mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                             <div class="flex flex-col gap-4 items-start py-4">
-                                <MenuItem>
+                                <div v-for="route in data">
+                                    <MenuItem>
+                                    <RouterLink 
+                                        active-class="font-bold text-title-card"
+                                        class="hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center"
+                                        :to="{ name: route.MEN_ARCHIVO_RUTA_VUE }">
+                                        {{ route.MEN_NOMBRE }}
+                                    </RouterLink>
+                                </MenuItem>
+                                </div>
+                                <!--  -->
+                                <!--  -->
+                                <!-- <MenuItem>
                                 <RouterLink active-class="font-bold text-title-card"
                                     class="hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center"
                                     :to="{ name: 'quienes-somos' }">
@@ -53,7 +66,7 @@
                                     :to="{ name: 'publicaciones' }">
                                     Publicaciones
                                 </RouterLink>
-                                </MenuItem>
+                                </MenuItem> -->
                             </div>
                         </MenuItems>
                     </transition>
@@ -61,8 +74,9 @@
             </div>
         </div>
         <RouterLink :to="{ name: 'home' }">
-            <div class=" p-5 my-auto">
-                <img src="@/assets/svg/aprehenser-logo.svg" alt="Logo Aprehenser">
+            <div class=" p-5 my-auto max-w-[237px]">
+                <!-- <img src="@/assets/svg/aprehenser-logo.svg" alt="Logo Aprehenser"> -->
+                <img :src="`${inicioData?.url}${inicioData?.info.at(0)?.PAG_LOGO}`" alt="Logo Aprehenser">
             </div>
         </RouterLink>
         <div v-if="isLoading">
@@ -105,27 +119,21 @@
                 Publicaciones
             </RouterLink> -->
         </nav>
-        <div class="p-5 my-auto">
-            <img src="@/assets/svg/pucesi-ibarra-logo.svg" alt="Logo Pu">
+        <div class="p-5 my-auto max-w-[307px]">
+            <img :src="`${inicioData?.url}${inicioData?.info.at(0)?.PAG_LOGO_PUCE}`" alt="Logo Pu">
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { api } from '@/api/axios.api';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { Bars3Icon } from '@heroicons/vue/24/outline'
-import { useQuery } from '@tanstack/vue-query';
-import { MenuResponseInterface } from '../interfaces/menu-response.interface';
 
-const { data, isSuccess, isError, error, isLoading } = useQuery<MenuResponseInterface[]>({
-    queryKey: ['menu'],
-    queryFn: async () => {
-        const response = await api.get('menu');
-        return response.data;
-    }
-})
+import { useMenuQuery } from '../queries/menu.query';
+import { useInicioQuery } from '../queries/inicio.query';
 
+const { data, isError, error, isLoading, isSuccess} = useMenuQuery()
+const {data: inicioData, isLoading: inicioIsLoading, isSuccess: inicioIsSuccess} = useInicioQuery()
 
 </script>
 
