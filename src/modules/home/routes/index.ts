@@ -1,5 +1,3 @@
-// import { HomeRoutes } from "./HomeRoutes";
-
 const routes = [
     {
         path: "",
@@ -36,7 +34,7 @@ const routes = [
             },
             {
                 path: "que-hacemos",
-                children:[
+                children: [
                     {
                         path: "",
                         name: "que-hacemos",
@@ -67,7 +65,7 @@ const routes = [
                         name: "que-hacemos/mejora-continua",
                         component: () => import("../pages/MejoraContinuaPage.vue"),
                     },
-                ]
+                ],
             },
             {
                 path: "proyectos",
@@ -81,24 +79,24 @@ const routes = [
             },
             {
                 path: "publicaciones",
+                // name: "publicaciones",
                 children: [
                     {
                         path: "",
-                        name: "publicaciones/revistas",
-                        component: () => import("../pages/RevistasPage.vue")
+                        name: "publicaciones",
+                        component: () => import("../pages/RevistasPage.vue"),
                     },
                     {
                         path: "divulgaciones",
                         name: "publicaciones/divulgaciones",
-                        component: () => import("../pages/DivulgacionesPage.vue")
+                        component: () => import("../pages/DivulgacionesPage.vue"),
                     },
                     {
                         path: "resultados-innovadores",
                         name: "publicaciones/resultados-innovadores",
-                        component: () => import("../pages/ResultadosInnovadoresPage.vue")
-                    }
-                ]
-                
+                        component: () => import("../pages/ResultadosInnovadoresPage.vue"),
+                    },
+                ],
             },
         ],
     },
