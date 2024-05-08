@@ -2,16 +2,13 @@
     <MainLayout>
         <div class="h-686 bg-slate-500 w-full h-full relative">
             <div class="z-0 h-200 sm:h-auto ">
-                <Swiper :spaceBetween="30" :centeredSlides="true" :autoplay="{
+                <Swiper :spaceBetween="0" :centeredSlides="true" :autoplay="{
                     delay: 2500,
                     disableOnInteraction: false,
                 }" :navigation="false" :modules="modules">
                     <SwiperSlide v-for="slide in data?.banner">
-                        <img :src="`${data?.url}${slide.PWC_IMAGEN}`" :alt="slide.PWC_IMAGEN">
+                        <img class="w-full" :src="`${data?.url}${slide.PWC_IMAGEN}`" :alt="slide.PWC_IMAGEN">
                     </SwiperSlide>
-                    <!-- <SwiperSlide>
-                        <img src="@/assets/img/BackgroundMainImg.png" alt="Background img">
-                    </SwiperSlide> -->
                 </Swiper>
             </div>
             <div class="z-10 absolute inset-0 bg-black opacity-40"></div>
@@ -28,7 +25,10 @@
                 </div>
             </div>
         </div>
-        <div v-if="isLoading">Cargando...</div>
+        <!-- <div v-if="isLoading">Cargando...</div> -->
+        <div v-if="isLoading" class="z-60 w-screen h-screen bg-labels-grey/10 flex items-center justify-center">
+            <SpinnerComponent />
+        </div>
         <div v-if="isSuccess"
             class="md:h-32 p-8 mx-auto bg-labels-grey flex flex-col sm:flex-row md:justify-between md:items-center">
             <p
@@ -50,7 +50,8 @@
             <div class="border-b border-divider-title h-5 w-full"></div>
         </div>
         <div class="flex flex-wrap justify-center mx-auto">
-            <CardProjectComponent v-for="project in data?.proyectos_en_marcha" :title="project.PRO_NOMBRE" :image="`${data?.url}${project.PRO_IMAGEN}`" />
+            <CardProjectComponent v-for="project in data?.proyectos_en_marcha" :title="project.PRO_NOMBRE"
+                :image="`${data?.url}${project.PRO_IMAGEN}`" />
         </div>
         <div class="w-full flex items-center justify-center">
             <video loop autoplay muted>
@@ -70,6 +71,7 @@ import 'swiper/swiper-bundle.css'
 import MainLayout from '../layouts/MainLayout.vue';
 import CardProjectComponent from '../components/CardProjectComponent.vue';
 import { useInicioQuery } from '../queries/inicio.query';
+import SpinnerComponent from '../components/SpinnerComponent.vue';
 
 const modules = [Autoplay, Pagination, Navigation]
 

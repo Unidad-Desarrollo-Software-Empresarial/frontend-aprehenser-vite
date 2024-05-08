@@ -4,11 +4,14 @@
             <p class="text-footer-title-text text-xl font-monserrat tracking-widest ">
                 SOBRE NOSOTROS
             </p>
-            <div class="pt-12">
+
+            <div v-if="isLoading" class="flex items-center justify-center">
+                <div class="w-6 h-6 border-t-2 border-blue-500 rounded-full animate-spin"></div>
+            </div>
+
+            <div v-if="isSuccess" class="pt-12">
                 <p class="text-white text-sm md:text-lg text-left font-poppins tracking-wider">
-                    Aprehenser desarrolla y responde a la planificación estratégica anual, cuya misión estará siempre
-                    direccionada en el mejoramiento de la calidad educativa, mediante estrategias de innovación,
-                    acompañamiento, participación y capacitación docente.
+                    {{ data?.info.at(0)?.PAG_NOSOTROS }}
                 </p>
             </div>
             <div class="flex gap-x-12 pt-8">
@@ -75,7 +78,11 @@
 </template>
 
 <script setup lang="ts">
+import { useInicioQuery } from '../queries/inicio.query';
 
+
+
+const { data, isLoading, isSuccess } = useInicioQuery()
 </script>
 
 <style scoped></style>

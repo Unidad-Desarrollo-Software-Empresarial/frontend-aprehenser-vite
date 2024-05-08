@@ -21,7 +21,9 @@ export default {
         'btn-see-more': '#FF6F00', //naranja
         'divider-title': '#F9D14E', //amarillo
         'title-card': '#11BFDD'
-      }
+      },
+      columnCount: [2],
+      columnGap: ['1rem'],
     },
   },
   plugins: [],

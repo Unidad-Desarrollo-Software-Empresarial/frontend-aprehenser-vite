@@ -1,5 +1,7 @@
 <template>
-    <div v-if="inicioIsLoading">Cargando...</div>
+    <div v-if="inicioIsLoading" class="h-[40] flex items-center justify-center">
+        <SpinnerComponent />
+    </div>
     <div v-if="inicioIsSuccess" class="flex max-w-auto shadow-sm max-h-40 justify-between items-center">
         <div class="block md:hidden">
             <div class="text-right py-4 px-2">
@@ -32,50 +34,16 @@
                                 </div>
                                 <!--  -->
                                 <!--  -->
-                                <!-- <MenuItem>
-                                <RouterLink active-class="font-bold text-title-card"
-                                    class="hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center"
-                                    :to="{ name: 'quienes-somos' }">
-                                    Quiénes Somos
-                                </RouterLink>
-                                </MenuItem>
-                                <MenuItem>
-                                <RouterLink active-class="font-bold text-title-card"
-                                    class="hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center"
-                                    :to="{ name: 'que-hacemos' }">
-                                    Qué hacemos
-                                </RouterLink>
-                                </MenuItem>
-                                <MenuItem>
-                                <RouterLink active-class="font-bold text-title-card"
-                                    class="hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center"
-                                    :to="{ name: 'proyectos' }">
-                                    Proyectos
-                                </RouterLink>
-                                </MenuItem>
-                                <MenuItem>
-                                <RouterLink active-class="font-bold text-title-card"
-                                    class="hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center "
-                                    :to="{ name: 'noticias' }">
-                                    Noticias
-                                </RouterLink>
-                                </MenuItem>
-                                <MenuItem>
-                                <RouterLink active-class="font-bold text-title-card"
-                                    class="hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center"
-                                    :to="{ name: 'publicaciones' }">
-                                    Publicaciones
-                                </RouterLink>
-                                </MenuItem> -->
+                                
                             </div>
                         </MenuItems>
                     </transition>
                 </Menu>
             </div>
         </div>
+        <div v-if="inicioIsError">{{  inicioError }}</div>
         <RouterLink :to="{ name: 'home' }">
             <div class=" p-5 my-auto max-w-[237px]">
-                <!-- <img src="@/assets/svg/aprehenser-logo.svg" alt="Logo Aprehenser"> -->
                 <img :src="`${inicioData?.url}${inicioData?.info.at(0)?.PAG_LOGO}`" alt="Logo Aprehenser">
             </div>
         </RouterLink>
@@ -86,38 +54,12 @@
             {{ error }}
         </div>
         <nav v-if="isSuccess" class="hidden md:flex gap-6">
+            <!--  -->
             <RouterLink v-for="route in data" active-class="font-bold text-title-card"
                 class=" my-auto mx-2 focus:outline-none whitespace-normal text-center flex items-center justify-center w-[56px]"
                 :to="{ name: route.MEN_ARCHIVO_RUTA_VUE }">
                 {{ route.MEN_NOMBRE }}
             </RouterLink>
-
-            <!--  -->
-            <!-- <RouterLink active-class="font-bold text-title-card"
-                class="hover:bg-slate-50 hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center flex items-center justify-center w-[56px]"
-                :to="{ name: 'quienes-somos' }">
-                Quiénes Somos
-            </RouterLink>
-            <RouterLink active-class="font-bold text-title-card"
-                class="hover:bg-slate-50 hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center flex items-center justify-center w-[57px]"
-                :to="{ name: 'que-hacemos' }">
-                Qué hacemos
-            </RouterLink>
-            <RouterLink active-class="font-bold text-title-card"
-                class="hover:bg-slate-50 hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center flex items-center justify-center w-[57px]"
-                :to="{ name: 'proyectos' }">
-                Proyectos
-            </RouterLink>
-            <RouterLink active-class="font-bold text-title-card"
-                class="hover:bg-slate-50 hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center flex items-center justify-center w-[57px]"
-                :to="{ name: 'noticias' }">
-                Noticias
-            </RouterLink>
-            <RouterLink active-class="font-bold text-title-card"
-                class="hover:bg-slate-50 hover:rounded-xl my-auto mx-2 focus:outline-none whitespace-normal text-center flex items-center justify-center w-[57px]"
-                :to="{ name: 'publicaciones/revistas' }">
-                Publicaciones
-            </RouterLink> -->
         </nav>
         <div class="p-5 my-auto max-w-[307px]">
             <img :src="`${inicioData?.url}${inicioData?.info.at(0)?.PAG_LOGO_PUCE}`" alt="Logo Pu">
@@ -131,9 +73,10 @@ import { Bars3Icon } from '@heroicons/vue/24/outline'
 
 import { useMenuQuery } from '../queries/menu.query';
 import { useInicioQuery } from '../queries/inicio.query';
+import SpinnerComponent from './SpinnerComponent.vue';
 
 const { data, isError, error, isLoading, isSuccess} = useMenuQuery()
-const {data: inicioData, isLoading: inicioIsLoading, isSuccess: inicioIsSuccess} = useInicioQuery()
+const {data: inicioData, isLoading: inicioIsLoading, isSuccess: inicioIsSuccess, isError: inicioIsError, error: inicioError} = useInicioQuery()
 
 </script>
 

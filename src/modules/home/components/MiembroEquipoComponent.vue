@@ -52,7 +52,7 @@ import { ref } from 'vue';
 
 
 defineProps({
-    url: { type: String, required: true },
+    url: { type: String, required: false },
     name: String,
     role: String,
     email: String,
