@@ -1,8 +1,13 @@
 <template>
     <MainLayout>
         <NavBarAprehenser />
-        <div class="flex flex-col justify-center items-center mx-auto pt-8 pb-4 px-12 md:px-24">
+        <div v-if="isLoading">
+            <SpinnerComponent />
+        </div>
+        <div v-if="isSuccess">
+            <div class="flex flex-col justify-center items-center mx-auto pt-8 pb-4 px-12 md:px-24">
             <p class="font-sans text-2xl md:text-5xl font-bold">Imagen Institucional</p>
+            
             <div class="border-b border-divider-title h-5 w-[450px]"></div>
 
             <!-- -->
@@ -17,17 +22,34 @@
                         la imagen de la empresa de Aprehenser.</p>
                 </div>
                 <div>
-                    <DropDownComponent title="Recursos Graficos" />
+                    <!-- <DropDownComponent :title="data?.recursos_graficos.detalles.at(0)?.comboBox" :options="data?.recursos_graficos.detalles" /> -->
+                    <DropDownComponent :title="titleComboBox" :options="data?.recursos_graficos.detalles" />
                 </div>
             </div>
+    </div>
         </div>
     </MainLayout>
 </template>
 
 <script setup lang="ts">
+
 import MainLayout from '../layouts/MainLayout.vue';
 import NavBarAprehenser from '../components/NavBarAprehenser.vue';
 import DropDownComponent from '../components/DropDownComponent.vue';
+import { useQuienesSomosQuery } from '../queries/quienes-somos.query';
+import SpinnerComponent from '../components/SpinnerComponent.vue';
+import { onBeforeMount, ref } from 'vue';
+
+const { data, isSuccess, isLoading} = useQuienesSomosQuery()
+
+const titleComboBox = ref('Seleccione una opción')
+onBeforeMount(() => {
+    // titleComboBox.value = data?.value?.recursos_graficos.detalles.at(0)?.comboBox || 'Seleccione una opción'
+    titleComboBox.value = 'Nueva opcion'
+})
+
+
+
 </script>
 
 <style scoped></style>
