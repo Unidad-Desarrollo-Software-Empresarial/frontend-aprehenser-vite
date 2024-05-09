@@ -8,7 +8,6 @@
                     {{ title }}
                 </MenuButton>
             </div>
-
             <transition enter-active-class="transition duration-100 ease-out"
                 enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
                 leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
@@ -21,12 +20,11 @@
                             active ? 'bg-black/30 text-white' : 'text-gray-900',
                             'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                         ]"
-                            @click="emit('select', optionMenu)"
+                            @click="$emit('onSelect', optionMenu)"
                         >
                             {{ optionMenu.comboBox }}
                         </button>
                         </MenuItem>
-                        
                     </div>
                 </MenuItems>
             </transition>
@@ -36,7 +34,6 @@
 
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-// import { ChevronDownIcon, PencilIcon, DocumentDuplicateIcon, ArchiveBoxIcon, ArrowTopRightOnSquareIcon, TrashIcon } from '@heroicons/vue/24/outline'
 
 import { InformacionGeneral } from '../interfaces/quienes-somos.interface';
 
@@ -46,12 +43,12 @@ defineProps({
 })
 
 defineEmits({
-    select: (option: InformacionGeneral) => true
+    onSelect: (option: InformacionGeneral) => option
 })
 
-const emit = (event: string, option: InformacionGeneral) => {
-    console.log(option)
-}
+
+
+
 
 </script>
 
