@@ -3,21 +3,22 @@ export interface QuienesSomosInterface {
     equipo:              Equipo;
     opiniones:           Opiniones;
     recursos_graficos:   RecursosGraficos;
+    url:                 string;
 }
 
 export interface Equipo {
     nombre:        string;
-    Equipo:        MiembroEquipo[];
-    Colaboradores: MiembroEquipo[];
+    Equipo:        Opinion[];
+    Colaboradores: Opinion[];
     imagen:        Imagen[];
 }
 
-export interface MiembroEquipo {
-    imagen?:  string;
-    nombre?:  string;
-    cargo?:   string;
+export interface Opinion {
+    imagen:  string;
+    nombre:  string;
+    cargo:   string;
     correo?: string;
-    texto?:   string;
+    texto:   string;
 }
 
 export interface Imagen {
@@ -32,18 +33,10 @@ export interface InformacionGeneral {
     comboBox?: string;
 }
 
-
-export interface Opinion {
-    imagen:  string;
-    nombre:  string;
-    cargo:   string;
-    texto:   string;
-}
-
 export interface Opiniones {
     nombre:  string;
     titulo:  string;
-    opinion: MiembroEquipo;
+    opinion: Opinion;
 }
 
 export interface RecursosGraficos {

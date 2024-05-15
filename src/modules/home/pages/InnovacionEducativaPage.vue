@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <QueHacemosLayout>
         <div class="flex flex-col items-center">
             <p class="p-4 text-[32px] text-[#37C3DD] font-bold">Innovacion Educativa</p>
@@ -11,4 +11,4 @@
 
 <script setup lang="ts">
 import QueHacemosLayout from '../layouts/QueHacemosLayout.vue';
-</script>
+</script> -->

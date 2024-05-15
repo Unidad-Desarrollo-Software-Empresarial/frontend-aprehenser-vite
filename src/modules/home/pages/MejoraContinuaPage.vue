@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <QueHacemosLayout>
         <div class="flex flex-col items-center">
             <p class="p-4 text-[32px] text-[#37C3DD] font-bold">Evaluacion para la Mejora Continua</p>
@@ -20,4 +20,4 @@
 import QueHacemosLayout from '../layouts/QueHacemosLayout.vue';
 </script>
 
-<style scoped></style>
+<style scoped></style> -->

@@ -21,10 +21,10 @@
             <br />
         </div>
         <div>
-            <div v-if="isLoadingInicio">
+            <div v-if="isLoading">
                 <SpinnerComponent />
             </div>
-            <img v-if="!isLoadingInicio" :src="`${dataInicio?.url}${data?.informacion_general.imagen}`"
+            <img v-if="isSuccess" :src="`${data?.url}${data?.informacion_general.imagen}`"
                 class="h-[795px] w-screen object-cover object-center overflow-x-scroll" :alt="data?.informacion_general.titulo">
         </div>
     </MainLayout>
@@ -36,11 +36,9 @@ import MainLayout from '../layouts/MainLayout.vue';
 import NavBarAprehenser from '../components/NavBarAprehenser.vue';
 import { splitTextToColumns } from '../helpers/split-text-to-columns.helper';
 import { useQuienesSomosQuery } from '../queries/quienes-somos.query';
-import { useInicioQuery } from '../queries/inicio.query';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
 
 const { data, isSuccess, isLoading } = useQuienesSomosQuery()
-const { data: dataInicio, isLoading: isLoadingInicio } = useInicioQuery()
 
 
 </script>

@@ -11,7 +11,7 @@
             </div>
             <div class="flex flex-col lg:flex-row items-center justify-center gap-4 p-4 ">
                 <div class="w-[645px] flex flex-col items-center font-bold text-[24px]">
-                    <img :src="`${dataInicio?.url}${data?.opiniones.opinion.imagen}`" alt="Prorector">
+                    <img :src="`${data?.url}${data?.opiniones.opinion.imagen}`" alt="Prorector">
                     <p class="pt-4">{{ data?.opiniones.opinion.nombre }}</p>
                     <p class="pb-4">{{ data?.opiniones.opinion.cargo }}</p>
                 </div>
@@ -30,12 +30,10 @@
 import MainLayout from '../layouts/MainLayout.vue';
 import NavBarAprehenser from '../components/NavBarAprehenser.vue';
 import { useQuienesSomosQuery } from '../queries/quienes-somos.query';
-import { useInicioQuery } from '../queries/inicio.query';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
-// import FooterAprehenser from '../components/FooterAprehenser.vue';
 
 const { data, isSuccess, isLoading } = useQuienesSomosQuery()
-const { data: dataInicio } = useInicioQuery()
+
 </script>
 
 <style scoped></style>

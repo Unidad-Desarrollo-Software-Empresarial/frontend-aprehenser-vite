@@ -14,7 +14,7 @@
                 <div class="flex flex-col-reverse sm:flex-row w-full justify-between p-8">
                     <div></div>
                     <div class="max-w-[502px]">
-                        <img v-if="showedOption?.imagen" :src="`${dataInicio?.url}${showedOption?.imagen}`" alt="Portada Aprehenser">
+                        <img v-if="showedOption?.imagen" :src="`${data?.url}${showedOption?.imagen}`" alt="Portada Aprehenser">
                         <div v-else class="animate-pulse bg-gray-200 h-[200px] w-[200px]"></div>
                         <p class="text-[24px] py-[32px]">{{ showedOption?.texto }}</p>
                     </div>
@@ -37,12 +37,8 @@ import DropDownComponent from '../components/DropDownComponent.vue';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
 import { InformacionGeneral } from '../interfaces/quienes-somos.interface';
 import { useQuienesSomosQuery } from '../queries/quienes-somos.query';
-import { useInicioQuery } from '../queries/inicio.query';
 
 const { data, isSuccess, isLoading } = useQuienesSomosQuery()
-
-const { data: dataInicio } = useInicioQuery()
-
 
 const showedOption = ref<InformacionGeneral>(data.value?.recursos_graficos.detalles[0]!)
 
