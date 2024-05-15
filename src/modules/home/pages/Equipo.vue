@@ -12,7 +12,7 @@
                 :team="data?.equipo.Colaboradores || []" />
             <!-- Tercera Sección -->
 
-            <img :src="`${data?.url}${data?.equipo.imagen}`" class="h-[795px] w-full object-cover object-top"
+            <img :src="`${data?.url}${data?.equipo.imagen.at(0)?.imagen}`" class="min-h-[795px] w-full object-cover object-center"
                 :alt="`${data?.url}${data?.equipo.imagen}`">
         </div>
     </MainLayout>

@@ -1,15 +1,15 @@
 export interface QueHacemosInterface {
-    titulo:   Titulo;
-    trabajos: Trabajo[];
+    titulo:   TituloInterface;
+    trabajos: TrabajoInterface[];
     url:      string;
 }
 
-export interface Titulo {
+export interface TituloInterface {
     titulo: string;
     texto:  string;
 }
 
-export interface Trabajo {
+export interface TrabajoInterface {
     titulo: string;
     imagen: string;
     texto:  string;

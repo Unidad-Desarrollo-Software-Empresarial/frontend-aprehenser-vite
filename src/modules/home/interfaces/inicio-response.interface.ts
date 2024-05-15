@@ -1,16 +1,16 @@
 export interface InicioResponseInterface {
-    info:                Info[];
+    info:                InfoInterface[];
     url:                 string;
-    banner:              Banner[];
-    resumen:             Resumen;
-    proyectos_en_marcha: ProyectosEnMarcha[];
+    banner:              BannerInterface[];
+    resumen:             ResumenInterface;
+    proyectos_en_marcha: ProyectosEnMarchaInterface[];
 }
 
-export interface Banner {
+export interface BannerInterface {
     PWC_IMAGEN: string;
 }
 
-export interface Info {
+export interface InfoInterface {
     PAG_LOGO:      string;
     PAG_TEXTO:     string;
     PAG_LOGO_PUCE: string;
@@ -20,13 +20,13 @@ export interface Info {
     PAG_NOSOTROS:  string;
 }
 
-export interface ProyectosEnMarcha {
+export interface ProyectosEnMarchaInterface {
     PRO_ID:     string;
     PRO_NOMBRE: string;
     PRO_IMAGEN: string;
 }
 
-export interface Resumen {
+export interface ResumenInterface {
     proyectos:     string;
     profesores:    string;
     estudiantes:   string;

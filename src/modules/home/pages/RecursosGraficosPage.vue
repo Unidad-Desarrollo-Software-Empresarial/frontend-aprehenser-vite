@@ -35,14 +35,14 @@ import MainLayout from '../layouts/MainLayout.vue';
 import NavBarAprehenser from '../components/NavBarAprehenser.vue';
 import DropDownComponent from '../components/DropDownComponent.vue';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
-import { InformacionGeneral } from '../interfaces/quienes-somos.interface';
+import { InformacionGeneralInterface } from '../interfaces/quienes-somos.interface';
 import { useQuienesSomosQuery } from '../queries/quienes-somos.query';
 
 const { data, isSuccess, isLoading } = useQuienesSomosQuery()
 
-const showedOption = ref<InformacionGeneral>(data.value?.recursos_graficos.detalles[0]!)
+const showedOption = ref<InformacionGeneralInterface>(data.value?.recursos_graficos.detalles[0]!)
 
-const myAction = (option: InformacionGeneral) => {
+const myAction = (option: InformacionGeneralInterface) => {
     showedOption.value = option
 }
 

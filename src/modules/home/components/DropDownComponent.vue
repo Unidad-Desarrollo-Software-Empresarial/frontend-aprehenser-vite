@@ -35,15 +35,15 @@
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
-import { InformacionGeneral } from '../interfaces/quienes-somos.interface';
+import { InformacionGeneralInterface } from '../interfaces/quienes-somos.interface';
 
 defineProps({
     title: { type: String, required: false },
-    options: Array<InformacionGeneral>
+    options: Array<InformacionGeneralInterface>
 })
 
 defineEmits({
-    onSelect: (option: InformacionGeneral) => option
+    onSelect: (option: InformacionGeneralInterface) => option
 })
 
 

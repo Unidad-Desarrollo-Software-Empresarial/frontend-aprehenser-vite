@@ -3,18 +3,74 @@
         <div class="w-full flex items-center justify-center py-2">
             <p class="text-center text-[64px] text-[#37C3DD] font-bold font-sans">Convocatorias</p>
         </div>
+
         <div class="border-b-[5px] rounded border-divider-title max-w-[1200px] mx-auto py-1 mb-4"></div>
-        <div class="flex items-center justify-center">
-            <ItemProjectComponent title="Desing Thinking Educative"
-                description="El enfoque del Design Thinking Educative DTE se caracteriza por ser un método de aprendizaje experiencial, que facilita la comprensión y asimilación, mediante un proceso cognitivo dinámico y creativo a través de los pasos: empatía, definición, ideación, prototipado y testeo. Esta metodología se basa en el trabajo en equipo para estimular y desarrollar la inteligencia y el pensamiento creativo en el estudiante quien finalmente evidencia un producto de aprendizaje concreto"
-                image-url="https://s3-alpha-sig.figma.com/img/58ae/caa6/b608f21ba0b2cf1fa1af8325a5e984f6?Expires=1715558400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gP2WNBoQW8sqPrAlBHx4d6Wlfw-G1NTBpsK6nrX5Z4BcHoFzVc1TYy0dENWzqnZSdwuJ2oDukDFAKcW-~BuStXkOTGDSXIn18B2nj0otAvHH03zLZdq0JNLaP5JNdPlTLVH1le6hlSX78zCvuXPjh-pEbXkgWNn1lfDoKk~507FTjE~ieyaHRxxYpixuuwtxwPqir-mI5anqj7ZEbOdUbAxtsDLWD0rt~lfU4ly6vFk04xepHWCqYWu0Ekhr5lrZB3fb8fpaSQ-EVlhbU-o8fT1XDqk5V6uJC6f~AGPh~HnYiEG8zxNwfxOCvtn4l-R6U530FI7cFLX4J9YIv-UggQ__" />
+        <div class="w-full flex items-center justify-center py-2">
+            <p class="text-center text-[32px] text-[#37C3DD] font-bold font-sans">{{ showedProjects?.CONV_NOMBRE }}</p>
+        </div>
+        <div>
+            <div class="text-right py-4 px-2">
+                <!-- Drop down -->
+                <Menu as="div" class="relative inline-block text-left">
+                    <div>
+                        <MenuButton
+                            class="inline-flex w-full justify-center rounded-md bg-black/30 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+                            Seleccione una convocatoria
+                        </MenuButton>
+                    </div>
+                    <transition enter-active-class="transition duration-100 ease-out"
+                        enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100"
+                        leave-active-class="transition duration-75 ease-in"
+                        leave-from-class="transform scale-100 opacity-100"
+                        leave-to-class="transform scale-95 opacity-0">
+                        <MenuItems
+                            class="absolute mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                            <div class="px-1 py-1">
+                                <MenuItem v-slot="{ active }" v-for="optionMenu in data?.convocatorias">
+                                <button :class="[
+                                    active ? 'bg-black/30 text-white' : 'text-gray-900',
+                                    'group flex w-full items-center rounded-md px-2 py-2 text-sm',
+                                ]" @click="selectOption(optionMenu)">
+                                    {{ optionMenu.CONV_NOMBRE }}
+                                </button>
+                                </MenuItem>
+                            </div>
+                        </MenuItems>
+                    </transition>
+                </Menu>
+            </div>
+        </div>
+        <div class="flex-column">
+            <div v-for="(project, index) in showedProjects?.PROYECTOS">
+                <ItemProjectComponent :title="project?.PRO_NOMBRE" :description="project?.DETP_DESCRIPCIONES.at(0)!"
+                    :imageUrls="project?.IMAGENES" :isReverse="index % 2 === 0" />
+            </div>
         </div>
     </MainLayout>
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+
 import ItemProjectComponent from '../components/ItemProjectComponent.vue';
 import MainLayout from '../layouts/MainLayout.vue';
+import { useProyectosQuery } from '../queries/proyectos.query';
+import { ConvocatoriaInterface } from '../interfaces/proyectos-response.interface';
+
+
+const { data } = useProyectosQuery()
+
+const showedProjects = ref<ConvocatoriaInterface>()
+
+onMounted(() => {
+    showedProjects.value = data.value?.convocatorias.at(0)!
+})
+
+const selectOption = (option: ConvocatoriaInterface) => {
+    showedProjects.value = option
+}
 </script>
 
 <style scoped></style>

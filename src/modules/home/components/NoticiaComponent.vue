@@ -4,11 +4,17 @@
         <div class="flex items-center justify-center">
             <div class="flex flex-col-reverse sm:flex-row gap-5 max-w-[1500px]">
                 <div>
-                    <img :src="urlMainImg" :alt="urlMainImg">
+                    <div v-if="!urlMainImg">
+                        <SpinnerComponent />
+                    </div>
+                    <img v-else :src="`${data?.url}${urlMainImg}`" :alt="urlMainImg">
                 </div>
                 <div class="relative">
                     <div class="w-full">
-                        <img :src="urlSubImg" :alt="urlMainImg">
+                        <div v-if="!urlSubImg">
+                            <SpinnerComponent />
+                        </div>
+                        <img v-else :src="`${data?.url}${urlSubImg}`" :alt="urlMainImg">
                     </div>
                     <div class="absolute bottom-0 bg-[#141D28] bg-opacity-80 w-full text-center items-center">
                         <p class="text-white font-poppins font-bold text-[16px] sm:text-[20px]">{{ title }}</p>
@@ -29,10 +35,14 @@
 </template>
 
 <script setup lang="ts">
+import { useInicioQuery } from '../queries/inicio.query';
+import SpinnerComponent from './SpinnerComponent.vue';
+
+const { data } = useInicioQuery()
 
 defineProps({
-    urlMainImg: { type: String, required: true },
-    urlSubImg: { type: String, required: true },
+    urlMainImg: { type: String },
+    urlSubImg: { type: String },
     title: { type: String, required: true },
     content: { type: String, required: true },
     author: { type: String, required: true }

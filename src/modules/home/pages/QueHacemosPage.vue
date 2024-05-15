@@ -21,9 +21,13 @@
                         @click="selectOption(item)">{{ item.titulo }}</button>
                 </div>
                 <div class="flex flex-col items-center">
-                    <p class="p-4 text-[32px] text-[#37C3DD] font-bold">{{ showedOption.titulo }}</p>
-                    <img :src="`${data?.url}${showedOption.imagen}`" :alt="showedOption.imagen" class="max-w-[846px]">
-                    <p class="max-w-[846px] py-[42px]">{{ showedOption.texto }}</p>
+                    <p class="p-4 text-[32px] text-[#37C3DD] font-bold">{{ showedOption?.titulo }}</p>
+                    
+                    <div v-if="!showedOption?.imagen" class="my-auto">
+                        <p class="text-3xl">Seleccione una opcion del menu</p>
+                    </div>
+                    <img v-else :src="`${data?.url}${showedOption?.imagen}`" :alt="data?.url" class="max-w-[846px]">
+                    <p class="max-w-[846px] py-[42px]">{{ showedOption?.texto }}</p>
                 </div>
             </div>
         </div>
@@ -32,18 +36,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import MainLayout from '../layouts/MainLayout.vue';
 import { useQueHacemosQuery } from '../queries/que-hacemos.query';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
-import { Trabajo } from '../interfaces/que-hacemos.interface';
+import { TrabajoInterface } from '../interfaces/que-hacemos.interface';
 
 const { data, isLoading, isSuccess, isError, error } = useQueHacemosQuery()
 
-const showedOption = ref(data.value?.trabajos[0]!)
+const showedOption = ref<TrabajoInterface | undefined>()
 
-const selectOption = (option: Trabajo) => {
+onMounted(() => {
+    showedOption.value = data.value?.trabajos[0]!
+})
+
+
+const selectOption = (option: TrabajoInterface) => {
     showedOption.value = option
 }
 </script>

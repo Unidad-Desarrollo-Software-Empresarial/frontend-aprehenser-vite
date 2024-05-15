@@ -1,19 +1,19 @@
 export interface QuienesSomosInterface {
-    informacion_general: InformacionGeneral;
-    equipo:              Equipo;
-    opiniones:           Opiniones;
+    informacion_general: InformacionGeneralInterface;
+    equipo:              EquipoInterface;
+    opiniones:           OpinionesInterface;
     recursos_graficos:   RecursosGraficos;
     url:                 string;
 }
 
-export interface Equipo {
+export interface EquipoInterface {
     nombre:        string;
-    Equipo:        Opinion[];
-    Colaboradores: Opinion[];
-    imagen:        Imagen[];
+    Equipo:        OpinionInterface[];
+    Colaboradores: OpinionInterface[];
+    imagen:        ImagenInterface[];
 }
 
-export interface Opinion {
+export interface OpinionInterface {
     imagen:  string;
     nombre:  string;
     cargo:   string;
@@ -21,11 +21,11 @@ export interface Opinion {
     texto:   string;
 }
 
-export interface Imagen {
+export interface ImagenInterface {
     imagen: string;
 }
 
-export interface InformacionGeneral {
+export interface InformacionGeneralInterface {
     nombre?:   string;
     titulo:    string;
     texto:     string;
@@ -33,13 +33,13 @@ export interface InformacionGeneral {
     comboBox?: string;
 }
 
-export interface Opiniones {
+export interface OpinionesInterface {
     nombre:  string;
     titulo:  string;
-    opinion: Opinion;
+    opinion: OpinionInterface;
 }
 
 export interface RecursosGraficos {
     nombre:   string;
-    detalles: InformacionGeneral[];
+    detalles: InformacionGeneralInterface[];
 }
