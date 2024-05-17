@@ -10,10 +10,16 @@
         <div class="border-b-[5px] rounded border-divider-title max-w-[1200px] mx-auto py-1"></div>
 
         <div>
+            <!-- <NoticiaAlternativaComponent 
+            v-for="noticia in data?.noticias.noticias"
+            :images="noticia.IMAGENES"
+            :title="noticia.PAGN_TITULO"
+            :content="noticia.PAGN_TEXTO"
+            author="Maricela Ormaza"
+            /> -->
             <NoticiaComponent 
             v-for="noticia in data?.noticias.noticias"
-            :url-main-img="noticia.IMAGENES.at(0)"
-            :url-sub-img="noticia.IMAGENES.at(1)"
+            :url-images="noticia.IMAGENES"
             :title="noticia.PAGN_TITULO"
             :content="noticia.PAGN_TEXTO"
             author="Maricela Ormaza"
@@ -28,6 +34,7 @@
 <script setup lang="ts">
 import MainLayout from '../layouts/MainLayout.vue';
 import NoticiaComponent from '../components/NoticiaComponent.vue';
+// import NoticiaAlternativaComponent from '../components/NoticiaAlternativaComponent.vue';
 import { useNoticiasQuery } from '../queries/noticias.query';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
 

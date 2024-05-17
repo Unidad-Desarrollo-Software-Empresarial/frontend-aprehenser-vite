@@ -11,6 +11,6 @@ export interface ConvocatoriaInterface {
 export interface ProyectoInterface {
     PRO_ID:             string;
     PRO_NOMBRE:         string;
-    DETP_DESCRIPCIONES: string[];
+    DETP_LINEACIONES: string[];
     IMAGENES:           string[];
 }

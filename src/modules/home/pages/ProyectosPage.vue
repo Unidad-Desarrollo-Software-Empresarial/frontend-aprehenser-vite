@@ -42,7 +42,7 @@
         </div>
         <div class="flex-column">
             <div v-for="(project, index) in showedProjects?.PROYECTOS">
-                <ItemProjectComponent :title="project?.PRO_NOMBRE" :description="project?.DETP_DESCRIPCIONES.at(0)!"
+                <ItemProjectComponent :title="project?.PRO_NOMBRE" :description="project?.DETP_LINEACIONES.at(0)!"
                     :imageUrls="project?.IMAGENES" :isReverse="index % 2 === 0" />
             </div>
         </div>

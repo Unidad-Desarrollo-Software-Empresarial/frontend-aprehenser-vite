@@ -53,7 +53,7 @@
         <div v-if="isError">
             {{ error }}
         </div>
-        <nav v-if="isSuccess" class="hidden md:flex gap-6">
+        <nav v-if="isSuccess" class="hidden md:flex gap-[60px]">
             <!--  -->
             <RouterLink v-for="route in data" active-class="font-bold text-title-card"
                 class=" my-auto mx-2 focus:outline-none whitespace-normal text-center flex items-center justify-center w-[56px]"
