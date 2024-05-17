@@ -46,7 +46,7 @@
             <p class="text-labels-grey font-open-sans text-2xl md:text-5xl font-bold">Proyectos en marcha</p>
             <div class="border-b border-divider-title h-5 w-full"></div>
         </div>
-        <div class="flex flex-wrap justify-center mx-auto">
+        <div class="flex flex-wrap justify-center mx-auto max-w-[1500px]">
             <CardProjectComponent v-for="project in data?.proyectos_en_marcha" :title="project.PRO_NOMBRE"
                 :image="`${data?.url}${project.PRO_IMAGEN}`" />
         </div>

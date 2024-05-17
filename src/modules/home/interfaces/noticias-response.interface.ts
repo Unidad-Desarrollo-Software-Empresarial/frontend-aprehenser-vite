@@ -1,15 +1,16 @@
 export interface NoticiasResponseInterface {
     noticias: NoticiasInterface;
-    url:      string;
+    url: string;
 }
 
 export interface NoticiasInterface {
     texto_logo: string;
-    noticias:   NoticiaInterface[];
+    noticias: NoticiaInterface[];
 }
 
 export interface NoticiaInterface {
     PAGN_TITULO: string;
-    PAGN_TEXTO:  string;
-    IMAGENES:    string[];
+    PAGN_TEXTO: string;
+    IMAGENES: string[];
+    PAGN_AUTOR: string;
 }

@@ -22,7 +22,7 @@
                 </div>
                 <div class="flex flex-col items-center">
                     <p class="p-4 text-[32px] text-[#37C3DD] font-bold">{{ showedOption?.titulo }}</p>
-                    
+
                     <div v-if="!showedOption?.imagen" class="my-auto">
                         <p class="text-3xl">Seleccione una opcion del menu</p>
                     </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref, watch } from 'vue';
 
 import MainLayout from '../layouts/MainLayout.vue';
 import { useQueHacemosQuery } from '../queries/que-hacemos.query';
@@ -47,7 +47,8 @@ const { data, isLoading, isSuccess, isError, error } = useQueHacemosQuery()
 
 const showedOption = ref<TrabajoInterface | undefined>()
 
-onMounted(() => {
+
+watch(data, () => {
     showedOption.value = data.value?.trabajos[0]!
 })
 

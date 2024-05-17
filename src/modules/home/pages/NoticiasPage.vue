@@ -18,11 +18,12 @@
             author="Maricela Ormaza"
             /> -->
             <NoticiaComponent 
-            v-for="noticia in data?.noticias.noticias"
+            v-for="(noticia, index) in data?.noticias.noticias"
             :url-images="noticia.IMAGENES"
             :title="noticia.PAGN_TITULO"
             :content="noticia.PAGN_TEXTO"
-            author="Maricela Ormaza"
+            :author="noticia.PAGN_AUTOR"
+            :is-reverse="index % 2 === 0"
             />
             
         </div>

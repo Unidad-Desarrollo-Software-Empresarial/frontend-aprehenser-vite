@@ -1,6 +1,6 @@
 <template>
     <PublicacionesLayout title="Revistas">
-        
+
         <div v-if="isLoading">
             <SpinnerComponent />
         </div>
@@ -12,7 +12,7 @@
                         <div>
                             <MenuButton
                                 class="inline-flex w-full justify-center rounded-md bg-black/30 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
-                                Seleccione una convocatoria
+                                {{  showedOption?.convocatoria }}
                             </MenuButton>
                         </div>
                         <transition enter-active-class="transition duration-100 ease-out"
@@ -24,7 +24,8 @@
                             <MenuItems
                                 class="absolute mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                                 <div class="px-1 py-1">
-                                    <MenuItem v-slot="{ active }" v-for="optionMenu in data?.revistas">
+                                    <MenuItem v-slot="{ active }"
+                                        v-for="optionMenu in data?.contenido.at(0)?.publicaciones">
                                     <button :class="[
                                         active ? 'bg-black/30 text-white' : 'text-gray-900',
                                         'group flex w-full items-center rounded-md px-2 py-2 text-sm',
@@ -39,8 +40,9 @@
                 </div>
             </div>
             <div class="max-w-[365px]">
-                <img :src="`${data?.url}${showedOption?.imagen}`"
-                    :alt="showedOption?.imagen">
+                <a :href="showedOption?.revista" target="_blank">
+                    <img :src="`${data?.url}${showedOption?.imagen}`" :alt="`${data?.url}${showedOption?.imagen}`">
+                </a>
             </div>
             <div class="max-w-[650px]">
                 <p class="text-[24px]">
@@ -57,23 +59,23 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from 'vue';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
 import PublicacionesLayout from '../layouts/PublicacionesLayout.vue';
 import { usePublicacionesQuery } from '../queries/publicaciones.query';
-import { onMounted, ref } from 'vue';
-import { RevistaInterface } from '../interfaces/publicaciones-response.interface';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
+import { PublicacionesInterface } from '../interfaces/publicaciones-response.interface';
 
 const { data, isError, error, isLoading, isSuccess } = usePublicacionesQuery()
 
-const showedOption = ref<RevistaInterface>()
+const showedOption = ref<PublicacionesInterface>()
 
-onMounted(() => {
-    showedOption.value = data?.value?.revistas[0]
+watch(data, (newData) => {
+    showedOption.value = newData?.contenido?.at(0)?.publicaciones?.at(0)
 })
 
-const onSelect = (option: RevistaInterface) => {
+const onSelect = (option: PublicacionesInterface) => {
     showedOption.value = option
 }
 </script>

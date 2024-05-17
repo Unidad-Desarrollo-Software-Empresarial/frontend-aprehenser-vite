@@ -2,7 +2,7 @@
     <div v-if="inicioIsLoading" class="h-[40] flex items-center justify-center">
         <SpinnerComponent />
     </div>
-    <div v-if="inicioIsSuccess" class="flex max-w-auto shadow-sm max-h-40 justify-between items-center">
+    <div v-if="inicioIsSuccess" class="flex max-w-auto shadow-sm max-h-40 justify-between items-center px-0 md:px-10">
         <div class="block md:hidden">
             <div class="text-right py-4 px-2">
                 <!-- Drop down -->

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="px-5 py-4">
 
         <div class="max-w-[1500px] mx-auto">
@@ -68,4 +68,4 @@ defineProps({
 })
 </script>
 
-<style scoped></style>
+<style scoped></style> -->

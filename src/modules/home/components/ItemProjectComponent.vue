@@ -1,12 +1,13 @@
 <template>
     <div :class="[
         `sm:p-5 sm:m-2 sm:flex sm:justify-center sm:items-center`,
-        isReverse ? `flex-row-reverse` : `flex-row`
+        isReverse ? `flex flex-col-reverse sm:flex-row-reverse` : `sm:flex-row`,
+        
     ]">
         <div class="max-w-[800px] min-w-[300px]">
             <p class="px-8 font-sans text-2xl md:text-2xl text-title-card font-bold ">{{ title }}</p>
             <div class="max-h-md p-8">
-                <p class="block mt-1 text-lg leading-tight font-medium text-title-card hover:underline">{{
+                <p class="block mt-1 text-lg leading-tight font-medium text-title-card hover:underline text-justify">{{
                     description }}</p>
                 <button class="mt-4 bg-btn-see-more hover:opacity-90 text-white py-2 px-4 rounded">Ver más</button>
             </div>

@@ -3,12 +3,12 @@ import { ProyectosResponseInterface } from "../interfaces/proyectos-response.int
 import { api } from "@/api/axios.api";
 
 export const useProyectosQuery = () => {
-    const { data, isSuccess, isError, error, isLoading } = useQuery({
+    const { data, isSuccess, isError, error, isLoading, isPending } = useQuery({
         queryKey: ["proyectos"],
         queryFn: async () => {
             const response = await api.get<ProyectosResponseInterface>("/proyectos");
             return response.data;
-        },
+        }
     });
-    return { data, isSuccess, isError, error, isLoading };
+    return { data, isSuccess, isError, error, isLoading, isPending };
 };

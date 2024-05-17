@@ -9,13 +9,16 @@
             <p class="text-center text-[32px] text-[#37C3DD] font-bold font-sans">{{ showedProjects?.CONV_NOMBRE }}</p>
         </div>
         <div>
-            <div class="text-right py-4 px-2">
+            <div v-if="isPending">
+                <SpinnerComponent />
+            </div>
+            <div v-else class="text-right py-4 md:pr-[80px]">
                 <!-- Drop down -->
                 <Menu as="div" class="relative inline-block text-left">
                     <div>
                         <MenuButton
                             class="inline-flex w-full justify-center rounded-md bg-black/30 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
-                            Seleccione una convocatoria
+                            {{ showedProjects?.CONV_NOMBRE || 'Seleccione una convocatoria' }}
                         </MenuButton>
                     </div>
                     <transition enter-active-class="transition duration-100 ease-out"
@@ -50,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref, watch } from 'vue';
 
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
@@ -58,14 +61,17 @@ import ItemProjectComponent from '../components/ItemProjectComponent.vue';
 import MainLayout from '../layouts/MainLayout.vue';
 import { useProyectosQuery } from '../queries/proyectos.query';
 import { ConvocatoriaInterface } from '../interfaces/proyectos-response.interface';
+import SpinnerComponent from '../components/SpinnerComponent.vue';
 
 
-const { data } = useProyectosQuery()
+const { data, isPending } = useProyectosQuery()
 
 const showedProjects = ref<ConvocatoriaInterface>()
 
-onMounted(() => {
-    showedProjects.value = data.value?.convocatorias.at(0)!
+watch(data, (newData) => {
+    if(newData?.convocatorias){
+        showedProjects.value = newData.convocatorias[0]
+    }
 })
 
 const selectOption = (option: ConvocatoriaInterface) => {
