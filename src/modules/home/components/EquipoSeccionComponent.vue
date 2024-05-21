@@ -31,14 +31,14 @@ import { TeamMemberInterface } from '../interfaces/team-member.interface';
 <script setup lang="ts">
 
 import MiembroEquipoComponent from '../components/MiembroEquipoComponent.vue';
-import { MiembroEquipo } from '../interfaces/quienes-somos.interface';
+import { OpinionInterface } from '../interfaces/quienes-somos.interface';
 import { useInicioQuery } from '../queries/inicio.query';
 
 const { data } = useInicioQuery()
 
 defineProps({
     title: { type: String, required: true },
-    team: { type: Array<MiembroEquipo> || undefined, required: true }
+    team: { type: Array<OpinionInterface> || undefined, required: true }
 })
 </script>
 
