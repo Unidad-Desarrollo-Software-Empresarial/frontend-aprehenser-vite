@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="max-w-[650px]">
-                <p class="text-[24px]">
+                <p class="text-[24px] text-justify">
                     {{ showedOption?.texto }}
                 </p>
             </div>

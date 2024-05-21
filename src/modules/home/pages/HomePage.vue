@@ -48,13 +48,12 @@
         </div>
         <div class="flex flex-wrap justify-center mx-auto max-w-[1500px]">
             <CardProjectComponent v-for="project in data?.proyectos_en_marcha" :title="project.PRO_NOMBRE"
-                :image="`${data?.url}${project.PRO_IMAGEN}`" />
+                :image="`${data?.url}${project.PRO_IMAGEN}`" :idProyecto="project.PRO_ID" />
         </div>
         <div class="w-full flex items-center justify-center">
             <video loop autoplay muted>
                 <source :src="`${data?.url}${data?.info.at(0)?.PAG_VIDEO}`" type="video/mp4">
             </video>
-
         </div>
     </MainLayout>
 
@@ -65,10 +64,10 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css'
 
+import SpinnerComponent from '../components/SpinnerComponent.vue';
 import MainLayout from '../layouts/MainLayout.vue';
 import CardProjectComponent from '../components/CardProjectComponent.vue';
 import { useInicioQuery } from '../queries/inicio.query';
-import SpinnerComponent from '../components/SpinnerComponent.vue';
 
 const modules = [Autoplay, Pagination, Navigation]
 

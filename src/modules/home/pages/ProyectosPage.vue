@@ -46,14 +46,14 @@
         <div class="flex-column">
             <div v-for="(project, index) in showedProjects?.PROYECTOS">
                 <ItemProjectComponent :title="project?.PRO_NOMBRE" :description="project?.DETP_LINEACIONES.at(0)!"
-                    :imageUrls="project?.IMAGENES" :isReverse="index % 2 === 0" />
+                    :imageUrls="project?.IMAGENES" :isReverse="index % 2 === 0" :id-proyecto="project.PRO_ID" />
             </div>
         </div>
     </MainLayout>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
@@ -70,7 +70,16 @@ const showedProjects = ref<ConvocatoriaInterface>()
 
 watch(data, (newData) => {
     if(newData?.convocatorias){
+        console.log("Data actualizada")
         showedProjects.value = newData.convocatorias[0]
+    }else {
+        console.log("Retorno de pagina", data)
+    }
+})
+
+onMounted(() => {
+    if(data?.value?.convocatorias){
+        showedProjects.value = data.value.convocatorias[0]
     }
 })
 

@@ -7,7 +7,10 @@
             </div>
             <div class="max-h-md p-8">
                 <a href="#" class="block mt-1 text-lg leading-tight font-medium text-title-card hover:underline">{{ title }}</a>
-                <button class="mt-4 bg-btn-see-more hover:opacity-90 text-white font-bold py-2 px-4 rounded">Ver más</button>
+                <button 
+                    @click="() => $router.push({name: 'proyectos/id', params: {idProyecto} })"
+                    class="mt-4 bg-btn-see-more hover:opacity-90 text-white font-bold py-2 px-4 rounded"
+                >Ver más</button>
             </div>
         </div>
     </div>
@@ -16,8 +19,11 @@
 <script setup lang="ts">
 defineProps({
     title: {type: String, required: true},
-    image: {type: String, required: true}
+    image: {type: String, required: true},
+    idProyecto: String
 })
+
+
 
 </script>
 

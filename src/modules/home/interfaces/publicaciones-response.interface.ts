@@ -9,6 +9,11 @@
 //     revista:      string;
 //     texto:        string;
 // }
+
+
+// =========================================================
+
+
 export interface PublicacionesResponseInterface {
     contenido: ContenidoInterface[];
     url:       string;
@@ -35,3 +40,5 @@ export interface PublicacionesInterface {
     revista:      string;
     texto:        string;
 }
+//  ===========================================================
+

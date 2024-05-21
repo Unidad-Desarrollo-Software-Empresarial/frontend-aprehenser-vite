@@ -9,7 +9,10 @@
             <div class="max-h-md p-8">
                 <p class="block mt-1 text-lg leading-tight font-medium text-title-card hover:underline text-justify">{{
                     description }}</p>
-                <button class="mt-4 bg-btn-see-more hover:opacity-90 text-white py-2 px-4 rounded">Ver más</button>
+                <button 
+                    @click="() => $router.push({name: 'proyectos/id', params: {idProyecto}})"
+                    class="mt-4 bg-btn-see-more hover:opacity-90 text-white py-2 px-4 rounded"
+                >Ver más</button>
             </div>
             <div class="border-b-[5px] rounded border-divider-title max-w-[700px] mx-auto py-1 mb-4"></div>
         </div>
@@ -52,6 +55,7 @@ const { data } = useInicioQuery()
 
 defineProps({
     title: { type: String },
+    idProyecto: { type: String, required: true},
     description: { type: String },
     imageUrls: { type: Array<string> },
     isReverse: { type: Boolean, default: false }
