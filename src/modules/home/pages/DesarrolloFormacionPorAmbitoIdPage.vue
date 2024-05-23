@@ -33,8 +33,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="curso in ambitoDetalle?.cursos" :key="curso.id">
-                            <td>{{ curso.tema }}</td>
+                        <tr v-for="curso in table.getRowModel().rows" :key="curso.id">
+                            <td>{{ curso. }}</td>
                             <td>{{ curso.duracion }}</td>
                             <td>{{ curso.itinerario }}</td>
                             <td>{{ curso.inicio }}</td>
@@ -58,8 +58,8 @@ import MainLayout from '../layouts/MainLayout.vue';
 import { onMounted, ref } from 'vue';
 import { api } from '@/api/axios.api';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
-import { DetalleFormacionByIdResponseInterface } from '../interfaces/detalle-formacion-by-id-response.interface';
-import { createColumnHelper } from '@tanstack/vue-table';
+import { CursoInterface, DetalleFormacionByIdResponseInterface } from '../interfaces/detalle-formacion-by-id-response.interface';
+import { ColumnDef, getCoreRowModel, useVueTable } from '@tanstack/vue-table';
 
 
 
@@ -80,11 +80,14 @@ onMounted(async () => {
     ambitoDetalle.value = response.data
 })
 
-const columnHelper = createColumnHelper()
 
-const columns = [ 
-    columnHelper.display({id: 'tema'}),
-]
+const columns: ColumnDef<CursoInterface>[] = []
+
+const table = useVueTable({
+    columns,
+    data: ambitoDetalle.value?.cursos,
+    getCoreRowModel: getCoreRowModel()
+})
 
 
 </script>
