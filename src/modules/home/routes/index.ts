@@ -36,38 +36,6 @@ const routes = [
                 path: "que-hacemos",
                 name: "que-hacemos",
                 component: () => import("../pages/QueHacemosPage.vue"),
-                // children: [
-                //     {
-                //         path: "",
-                //         name: "que-hacemos",
-                //         component: () => import("../pages/InnovacionEducativaPage.vue"),
-                //     },
-                //     {
-                //         path: "formacion-docente",
-                //         name: "que-hacemos/formacion-docente",
-                //         component: () => import("../pages/FormacionDocentePage.vue"),
-                //     },
-                //     {
-                //         path: "investigacion-educativa",
-                //         name: "que-hacemos/investigacion-educativa",
-                //         component: () => import("../pages/InvestigacionEducativaPage.vue"),
-                //     },
-                //     {
-                //         path: "laboratorio-pucesi-lab",
-                //         name: "que-hacemos/laboratorio-pucesi-lab",
-                //         component: () => import("../pages/LaboratorioPucesiPage.vue"),
-                //     },
-                //     {
-                //         path: "impactos",
-                //         name: "que-hacemos/impactos",
-                //         component: () => import("../pages/ImpactosPage.vue"),
-                //     },
-                //     {
-                //         path: "mejora-continua",
-                //         name: "que-hacemos/mejora-continua",
-                //         component: () => import("../pages/MejoraContinuaPage.vue"),
-                //     },
-                // ],
             },
             {
                 path: "proyectos",
@@ -86,7 +54,6 @@ const routes = [
             },
             {
                 path: "publicaciones",
-                // name: "publicaciones",
                 children: [
                     {
                         path: "",
@@ -105,6 +72,21 @@ const routes = [
                     },
                 ],
             },
+            {
+                path: "desarrollo-formacion",
+                children:[
+                    {
+                        path: "",
+                        name: "desarrollo-formacion",
+                        component: () => import("../pages/DesarrolloFormacionPage.vue"),
+                    },
+                    {
+                        path: ":idAmbito",
+                        name: "desarrollo-formacion/ambito",
+                        component: () => import("../pages/DesarrolloFormacionPorAmbitoIdPage.vue"),
+                    }
+                ]
+            }
         ],
     },
 ];

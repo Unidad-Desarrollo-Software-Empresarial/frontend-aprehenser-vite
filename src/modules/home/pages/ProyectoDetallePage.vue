@@ -51,13 +51,6 @@ import { api } from '@/api/axios.api';
 import { DetalleProyectosResponseInterface } from '../interfaces/detalle-proyectos-response';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
 
-
-// import { Swiper, SwiperSlide } from 'swiper/vue'
-// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-// import 'swiper/swiper-bundle.css'
-
-// const modules = [Autoplay, Pagination, Navigation]
-
 const route = useRoute()
 const detalleProyecto = ref<DetalleProyectosResponseInterface>()
 const isOk = ref(false)

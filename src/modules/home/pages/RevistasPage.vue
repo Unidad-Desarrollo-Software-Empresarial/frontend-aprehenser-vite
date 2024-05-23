@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
 import PublicacionesLayout from '../layouts/PublicacionesLayout.vue';
@@ -73,6 +73,10 @@ const showedOption = ref<PublicacionesInterface>()
 
 watch(data, (newData) => {
     showedOption.value = newData?.contenido?.at(0)?.publicaciones?.at(0)
+})
+
+onMounted(() => {
+    showedOption.value = data?.value?.contenido?.at(0)?.publicaciones?.at(0)
 })
 
 const onSelect = (option: PublicacionesInterface) => {
