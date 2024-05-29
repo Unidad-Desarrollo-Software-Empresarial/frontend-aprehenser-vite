@@ -4,21 +4,18 @@
             <SpinnerComponent />
         </div>
 
-        <div v-else class="px-4">
+        <div v-else class="px-4 ">
 
-
-            <div class="rounded-xl border m-6 p-4">
-
+            <div class="rounded-xl border m-6 p-4 max-w-[1200px] mx-auto">
                 <p>{{ ambitoDetalle?.formacion.ambito.nombre }}</p>
             </div>
 
-            <div class="rounded-xl border m-6 p-4">
-
-                <p>{{ ambitoDetalle?.formacion.ambito.texto }}</p>
+            <div class="rounded-xl border m-6 p-4 max-w-[1200px] mx-auto">
+                <p class="text-justify">{{ ambitoDetalle?.formacion.ambito.texto }}</p>
             </div>
 
-            <div class="p-4">
-                <table id="table-cursos" class=" max-w-[1200px]  mx-auto my-4 cell-border" style="width:100%">
+            <div class="p-5">
+                <table id="table-cursos" class=" max-w-[1200px] mx-auto my-4 cell-border" style="width:100%">
                     <thead>
                         <tr>
                             <th class="uppercase"

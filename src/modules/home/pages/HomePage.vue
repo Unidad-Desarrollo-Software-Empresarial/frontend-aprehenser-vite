@@ -65,9 +65,9 @@
                 <div class="h-5 w-full border-b border-divider-title"></div>
             </div>
             <!-- Modificar -->
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="max-w-[500px]">
-                    <p class="px-4 text-2xl text-justify">
+            <div class="flex flex-col lg:flex-row-reverse items-center justify-center">
+                <div class="max-w-[400px]">
+                    <p class="px-4 text-xl text-justify">
                         {{ data?.formacion.contenido.at(0)?.texto }}
                     </p>
                     <button @click="$router.push('/desarrollo-formacion/1')"
@@ -76,10 +76,10 @@
                     </button>
                 </div>
 
-                <div class="flex flex-wrap gap-3 p-4 bg-slate-600/10 w-full rounded-xl mx-4 items-center justify-center">
-                    <div class="rounded-2xl bg-slate-500/50 hover:cursor-pointer hover:bg-btn-see-more hover:text-white"
+                <div class="flex flex-wrap gap-3.5 p-4  rounded-2xl mx-4 items-center justify-center max-w-[650px]">
+                    <div class="rounded-2xl bg-slate-300/30 hover:cursor-pointer hover:bg-btn-see-more hover:text-white"
                         v-for="curso in data?.formacion.ambitos">
-                        <img class="w-[260px] rounded-2xl" :src="`${data?.url}${curso.imagen}`" :alt="`${curso.imagen}`"
+                        <img class="rounded-2xl object-cover object-top w-[300px] h-[175px]" :src="`${data?.url}${curso.imagen}`" :alt="`${curso.imagen}`"
                             :key="`${curso.imagen}`" />
                         <div class="max-w-[259px] py-4">
                             <p class="overflow-hidden text-center text-lg font-bold">
