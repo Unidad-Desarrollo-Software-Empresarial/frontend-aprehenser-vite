@@ -209,6 +209,11 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@popperjs/core@^2.9.3":
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
+  integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
+
 "@rollup/rollup-android-arm-eabi@4.14.3":
   version "4.14.3"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.14.3.tgz#bddf05c3387d02fac04b6b86b3a779337edfed75"
@@ -301,11 +306,6 @@
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.32.1.tgz#742b0293bcefd91b2a4d6bd7543e710ab666ac94"
   integrity sha512-mCWa1wdGb1jiny4+qYegbSeadcFj+Nq65KFSs4A1DRveoIq7SrTwUhqu7hrB6d54cQH5x59DfJvxusn3w1Cj/g==
 
-"@tanstack/table-core@8.17.3":
-  version "8.17.3"
-  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.17.3.tgz#d7a9830abb29cd369b52b2a7159dc0360af646fd"
-  integrity sha512-mPBodDGVL+fl6d90wUREepHa/7lhsghg2A3vFpakEhrhtbIlgNAZiMr7ccTgak5qbHqF14Fwy+W1yFWQt+WmYQ==
-
 "@tanstack/virtual-core@3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.4.0.tgz#afd72bc5a839b71c2cda87a738eb4eb18451b80a"
@@ -320,13 +320,6 @@
     "@tanstack/query-core" "5.32.1"
     "@vue/devtools-api" "^6.5.1"
     vue-demi "^0.14.6"
-
-"@tanstack/vue-table@^8.17.3":
-  version "8.17.3"
-  resolved "https://registry.yarnpkg.com/@tanstack/vue-table/-/vue-table-8.17.3.tgz#4cd2f7f33dad29b4658c491c1cd51fd2a8eb3af7"
-  integrity sha512-19amh2JJR4cFKmi3ZQERwwJg1ucoLm955Xg+RzypCMn6/dmHEzDu2TkVH/riaZFw5JbVfl17MoobMjWNE/fAEg==
-  dependencies:
-    "@tanstack/table-core" "8.17.3"
 
 "@tanstack/vue-virtual@^3.0.0-beta.60":
   version "3.4.1"
@@ -656,21 +649,6 @@ csstype@^3.1.3:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
 
-datatables.net-dt@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/datatables.net-dt/-/datatables.net-dt-2.0.7.tgz#4404c1c1026a4a495a30df99ccf828f0bc13bd7e"
-  integrity sha512-geClTADRyr/3B4S4eXLspidnkTzwvyLlUivYLQBlmq6M3+AAz1MI7kYXDEuOLC12Q8cvaABXFPI0oQ7Z4VZp4A==
-  dependencies:
-    datatables.net "2.0.7"
-    jquery ">=1.7"
-
-datatables.net@2.0.7, datatables.net@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.0.7.tgz#8af61ac17334c37ae3bd77fc2828a3571e052041"
-  integrity sha512-cyW+HZwkMzb4bLrao/SS9/i64ZHiw5nYhXl+OwuOPgddG+R9O11iOEke8wYsdiyOQmjv2mE6xkEmRMZwHZc8zw==
-  dependencies:
-    jquery ">=1.7"
-
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
@@ -779,6 +757,14 @@ fill-range@^7.0.1:
   integrity sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==
   dependencies:
     to-regex-range "^5.0.1"
+
+flowbite@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/flowbite/-/flowbite-2.3.0.tgz#0730e35d8b0d1dcdea26bb27d848bd9c0141cde1"
+  integrity sha512-pm3JRo8OIJHGfFYWgaGpPv8E+UdWy0Z3gEAGufw+G/1dusaU/P1zoBLiQpf2/+bYAi+GBQtPVG86KYlV0W+AFQ==
+  dependencies:
+    "@popperjs/core" "^2.9.3"
+    mini-svg-data-uri "^1.4.3"
 
 follow-redirects@^1.15.6:
   version "1.15.6"
@@ -909,11 +895,6 @@ jiti@^1.21.0:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.0.tgz#7c97f8fe045724e136a397f7340475244156105d"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
 
-jquery@>=1.7, jquery@^3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.1.tgz#083ef98927c9a6a74d05a6af02806566d16274de"
-  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
-
 lilconfig@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"
@@ -972,6 +953,11 @@ mime-types@^2.1.12:
   integrity sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==
   dependencies:
     mime-db "1.52.0"
+
+mini-svg-data-uri@^1.4.3:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz#8ab0aabcdf8c29ad5693ca595af19dd2ead09939"
+  integrity sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==
 
 minimatch@^9.0.1, minimatch@^9.0.3:
   version "9.0.4"

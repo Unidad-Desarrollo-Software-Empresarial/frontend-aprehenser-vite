@@ -7,7 +7,6 @@ export const useQueHacemosQuery = () => {
         queryKey: ["que-hacemos"],
         queryFn: async () => {
             const response = await api.get<QueHacemosInterface>("/que-hacemos");
-            console.log(response.data)
             return response.data;
         },
     });

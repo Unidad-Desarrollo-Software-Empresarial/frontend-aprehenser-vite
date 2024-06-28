@@ -1,35 +1,25 @@
 <template>
     <MainLayout>
-        <div v-if="!isOk">
+        <div v-if="isLoading">
             <SpinnerComponent />
         </div>
 
         <div v-else class="px-4 ">
 
             <div class="rounded-xl border m-6 p-4 max-w-[1200px] mx-auto">
-                <p>{{ ambitoDetalle?.formacion.ambito.nombre }}</p>
+                <p>{{ data?.formacion.ambito.nombre }}</p>
             </div>
 
             <div class="rounded-xl border m-6 p-4 max-w-[1200px] mx-auto">
-                <p class="text-justify">{{ ambitoDetalle?.formacion.ambito.texto }}</p>
+                <p class="text-justify">{{ data?.formacion.ambito.texto }}</p>
             </div>
 
-            <div class="p-5">
-                <table id="table-cursos" class=" max-w-[1200px] mx-auto my-4 cell-border" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th class="uppercase"
-                                v-for="item in Object.keys(ambitoDetalle?.formacion.cursos?.at(0) || {})">{{
-                                    item }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+            <CustomDataTable class="m-6 p-4 max-w-[1200px] mx-auto" :data="data?.formacion.cursos" :url="data?.url"
+                @inscription="inscription" />
 
         </div>
     </MainLayout>
+    <ModalComponent :open="isModalOpen" @close="closeModal" @inscribir="makeInscription" />
 </template>
 
 
@@ -38,67 +28,70 @@
 
 import { useRoute } from 'vue-router';
 import MainLayout from '../layouts/MainLayout.vue';
-import { onMounted, ref } from 'vue';
-import { api } from '@/api/axios.api';
 import SpinnerComponent from '../components/SpinnerComponent.vue';
-import { DetalleFormacionByIDResponseInterface } from '../interfaces/detalle-formacion-by-id-response.interface';
+import { useDetalleFormacionQuery } from '../queries/detalle-formacion.query';
+import CustomDataTable from '../components/CustomDataTable.vue';
+import ModalComponent from '../components/ModalComponent.vue';
+import { ref } from 'vue';
+import { InscripcionParticipante } from '../interfaces/inscripcion-participante';
+import { InscripcionCurso } from '../interfaces/inscripcion-curso';
+import { useInscripcionCursoQuery } from '../queries/inscripcion-curso.query';
 
-import 'datatables.net';
-import $ from 'jquery';
 
 const route = useRoute()
 
-const ambitoDetalle = ref<DetalleFormacionByIDResponseInterface>()
+const isModalOpen = ref(false)
 
-const isOk = ref(false)
+const inscripcion = ref<InscripcionParticipante>({
+    nombre: "",
+    email: "",
+    cedula: "",
+    telefono: "",
+});
+
+const curso = ref<InscripcionCurso>({
+    id: "",
+    nombre: "",
+    descripcion: "",
+    fechaInicio: "",
+    fechaFin: "",
+    horas: "",
+    costo: "",
+    url: "",
+    inscripcion: "",
+});
 
 
-onMounted(async () => {
-    const res = await api.get<DetalleFormacionByIDResponseInterface>(`/detalle-formacion/${route.params.idAmbito}`)
-    if (res.status === 200) {
-        isOk.value = true
-    }
-    ambitoDetalle.value = res.data
+const { data, isLoading } = useDetalleFormacionQuery(`${route.params.idAmbito}`)
 
-    $.ajax({
-        url: `${api.getUri()}/detalle-formacion/${route.params.idAmbito}`,
-        type: 'GET',
-        success: (response: DetalleFormacionByIDResponseInterface) => {
+const inscription = (cursoI: any) => {
+    curso.value.id = cursoI[0]
+    isModalOpen.value = true
+}
 
-            $('#table-cursos').DataTable({
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-                },
-                data: response.formacion.cursos,
-                columns: Object.keys(response.formacion.cursos[0]).map(key => ({
-                    title: key,
-                    data: key
-                })),
-                columnDefs: [{
-                    targets: 7,
-                    render: (data, type, row) => {
-                        console.log({type, row, data})
-                        return `<img 
-                                    src="${response.url}${data}" 
-                                    alt="${row.tema}" 
-                                    class="w-20 h-20 border-xl rounded"
-                                >`
-                    }
-                }]
+const mutation = useInscripcionCursoQuery()
 
-            });
-        },
-        error: (error) => {
-            console.error('Error fetching data:', error);
-            
-        }
-    });
-})
+const makeInscription = async (participante: InscripcionParticipante) => {
+    inscripcion.value = participante
+    isModalOpen.value = false
+
+    // Hacer peticiones para inscribir al participante en el curso 
+
+    mutation.mutateAsync({
+        DESC_ID: +curso.value.id,
+        REC_CEDULA: participante.cedula,
+        REC_CORREO: participante.email,
+        REC_NOMBRES: participante.nombre,
+        REC_TELEFONO: participante.telefono,
+    })
+
+
+}
+
+const closeModal = () => {
+    isModalOpen.value = false
+}
 
 </script>
 
-<style scoped>
-@import url('https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css');
-@import url('https://cdn.datatables.net/2.0.7/css/dataTables.jqueryui.css');
-@import url('https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css');
-</style>
+<style scoped></style>

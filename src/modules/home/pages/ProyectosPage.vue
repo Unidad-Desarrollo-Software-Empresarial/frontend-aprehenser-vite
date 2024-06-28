@@ -70,10 +70,7 @@ const showedProjects = ref<ConvocatoriaInterface>()
 
 watch(data, (newData) => {
     if(newData?.convocatorias){
-        console.log("Data actualizada")
         showedProjects.value = newData.convocatorias[0]
-    }else {
-        console.log("Retorno de pagina", data)
     }
 })
 

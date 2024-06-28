@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   darkMode: "class",
   theme: {
@@ -26,6 +27,8 @@ export default {
       columnGap: ['1rem'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 
