@@ -237,10 +237,10 @@ watchEffect(() => {
     if (props.data && props.data.length > 0 && props.data[0]) {
         columns.value = [...Object.keys(props.data[0] as Record<string, unknown>).map((col) => {
             return { head: col, isShowing: true }
-        }), 
-        // { head: 'Acciones', isShowing: true }
-    
-    ]
+        }),
+            // { head: 'Acciones', isShowing: true }
+
+        ]
     }
 })
 
@@ -250,7 +250,7 @@ onMounted(() => {
         columns.value = [...Object.keys(props.data[0] as Record<string, unknown>).map((col) => {
             return { head: col, isShowing: true }
         }),
-        // { head: 'Acciones', isShowing: true }
+            // { head: 'Acciones', isShowing: true }
         ]
     }
 })
@@ -302,6 +302,30 @@ const emitRowId = (id: any) => {
 
     emit('inscription', emitId)
 }
+
+
+// const getPaginationArray = (arr: number[], selectedNumber: number) => {
+//     const maxLength = 7; // Maximum length of the output array
+//     const selectedIndex = arr.indexOf(selectedNumber);
+
+//     if (selectedIndex === -1) {
+//         // If the selected number is not found in the array, return an empty array
+//         return [];
+//     }
+
+//     const startIndex = Math.max(0, selectedIndex - Math.floor((maxLength - 1) / 2));
+//     const endIndex = Math.min(arr.length, startIndex + maxLength);
+
+//     const result = new Array(maxLength).fill(0);
+
+//     for (let i = startIndex; i < endIndex; i++) {
+//         result[i - startIndex] = arr[i];
+//     }
+
+//     return result;
+// }
+
+
 </script>
 
 <style scoped></style>
