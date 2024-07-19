@@ -1,12 +1,12 @@
 <template>
-    <div class="p-8 max-w-md flex flex-col justify-center items-center hover:cursor-pointer" @click="selectPerson">
-        <div class="">
+    <div class="p-8 max-w-md h-[650px] flex flex-col justify-center items-center hover:cursor-pointer" @click="selectPerson">
+        <div class="align-top h-[450px]">
             <img class="w-[367px] h-[440px]" :src="url">
         </div>
-        <div class="">
+        <div class="h-[100px]">
             <p class="font-sans text-[32px] font-bold text-center">{{ name }}</p>
         </div>
-        <div class="">
+        <div class="algin-bottom h-[100px] ">
             <p class="font-sans text-[20px] font-bold text-footer-title-text uppercase text-center">{{ role }}</p>
         </div>
     </div>
