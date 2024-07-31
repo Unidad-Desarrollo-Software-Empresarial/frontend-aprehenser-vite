@@ -6,5 +6,5 @@ services:
     build: .
     restart: on-failure
     ports:
-      - 10003:80
+      - 10004:80
 
