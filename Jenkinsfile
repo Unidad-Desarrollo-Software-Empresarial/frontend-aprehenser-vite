@@ -23,7 +23,7 @@ pipeline {
         stage('Diagnose'){
             steps {
                 sh 'echo $PATH'
-                sh 'wich git'
+                sh 'which git'
                 sh 'docker -v'
             }
         }
