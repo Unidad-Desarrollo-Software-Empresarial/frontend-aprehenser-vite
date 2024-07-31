@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  frontend:
-    container_name: frontend
+  qa-frontend-aprehenser:
+    container_name: qa-frontend-aprehenser
     build: .
     restart: on-failure
     ports:
