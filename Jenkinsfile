@@ -46,7 +46,7 @@ pipeline {
     }
     post {
         always {
-            clearWs()
+            cleanWs()
         }
         success {
             echo 'Deployment Aprehenser was successful!'
