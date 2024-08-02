@@ -43,6 +43,13 @@ pipeline {
             }
         }
 
+        stage('Clean post-build'){
+            steps{
+                echo "Starting cleaning"
+                sh "docker system prune -a -f"
+            }
+        }
+
     }
     post {
         always {
